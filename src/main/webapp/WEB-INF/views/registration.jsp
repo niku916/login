@@ -48,7 +48,8 @@
         <input type="text" id="password" name="password" class="input-field" required><br>
 
         <input type="submit" value="Register">
-    </form>
+    </form><br>
+	<a href="/api/welcome" class="btn">Go to Home</a>
 </div>
 
 </body>

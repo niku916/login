@@ -1,12 +1,10 @@
 package com.login.login.Service;
 
-import java.lang.foreign.Linker.Option;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.login.login.Dto.UserManagementDTO;
 import com.login.login.Entity.UserManagementEntity;
 import com.login.login.Repo.LoginRepo;
 
@@ -18,8 +16,8 @@ public class LoginService {
 	@Autowired
 	LoginRepo loginRepo;
 
-	public boolean saveUserDetails(HttpServletRequest request) {
-
+	public String saveUserDetails(HttpServletRequest request) {
+		String msg = "";
 		String Name = request.getParameter("firstname");
 		String Email = request.getParameter("email");
 		String MobileNumber = request.getParameter("mobile");
@@ -30,11 +28,13 @@ public class LoginService {
 		managementEntity.setMobileNumber(MobileNumber);
 		managementEntity.setPassword(Password);
 		UserManagementEntity save = loginRepo.save(managementEntity);
-//		if(save.) {
-//			
-//		}
+		if (save != null) {
+			msg = "success";
+		} else {
+			msg = "failed";
+		}
 
-		return true;
+		return msg;
 	}
 
 	public String validateUserDetails(HttpServletRequest request) {
@@ -46,6 +46,8 @@ public class LoginService {
 				entity.getPassword());
 		if (validUser.isPresent()) {
 			isValidMsg = "success";
+		} else {
+			isValidMsg = "failed";
 		}
 		return isValidMsg;
 	}

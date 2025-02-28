@@ -21,7 +21,7 @@ public class LoginController {
 
 	@PostMapping("/validateUser")
 	public String validateUser(HttpServletRequest request) {
-		
+
 		String msg = loginService.validateUserDetails(request);
 		return msg;
 	}
@@ -33,8 +33,8 @@ public class LoginController {
 
 	@PostMapping("/saveRegister")
 	public String saveRegister(HttpServletRequest request) {
-		boolean saveUserDetails = loginService.saveUserDetails(request);
-		return "registration";
+		String saveUserDetails = loginService.saveUserDetails(request);
+		return saveUserDetails;
 	}
 
 }

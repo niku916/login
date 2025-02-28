@@ -11,5 +11,6 @@ import com.login.login.Entity.UserManagementEntity;
 public interface LoginRepo extends JpaRepository<UserManagementEntity, Integer> {
 
 	Optional<UserManagementEntity> findByUserNameAndPassword(String userName, String password);
+	
 
 }
