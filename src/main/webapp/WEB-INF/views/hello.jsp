@@ -41,7 +41,7 @@
 					<button class="btn btn-primary" type="submit">Sign UP</button>
 				   </form>
         <!-- Login Form -->
-        <form class="form-login" method="post" action="login.jsp">
+        <form class="form-login" method="post" action="/api/validateUser">
             <h2 class="mb-3">Login</h2>
             <% if (request.getParameter("error") != null) { %>
                 <div class="alert alert-danger" role="alert">

@@ -34,18 +34,18 @@
 
 <div class="registration-container">
     <h2 class="registration-heading">Registration Form</h2>
-    <form action="registration.jsp" method="post">
-        <label for="firstname">First Name:</label>
+    <form action="/api/saveRegister" method="post">
+        <label for="firstname">Name:</label>
         <input type="text" id="firstname" name="firstname" class="input-field" required><br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" class="input-field" required><br>
 
-        <label for="mobile">Mobile Number:</label>
+        <label for="mobile">MobileNumber:</label>
         <input type="tel" id="mobile" name="mobile" class="input-field" required><br>
         
         <label for="percentage">Password:</label>
-        <input type="text" id="percentage" name="percentage" class="input-field" required><br>
+        <input type="text" id="password" name="password" class="input-field" required><br>
 
         <input type="submit" value="Register">
     </form>
