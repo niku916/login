@@ -21,8 +21,9 @@ public class LoginController {
 
 	@PostMapping("/validateUser")
 	public String validateUser(HttpServletRequest request) {
-		boolean saveUserDetails = loginService.validateUserDetails(request);
-		return "hello";
+		
+		String msg = loginService.validateUserDetails(request);
+		return msg;
 	}
 
 	@GetMapping("/register")

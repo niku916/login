@@ -1,5 +1,8 @@
 package com.login.login.Service;
 
+import java.lang.foreign.Linker.Option;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,16 +37,17 @@ public class LoginService {
 		return true;
 	}
 
-	public boolean validateUserDetails(HttpServletRequest request) {
-		boolean isValid = false;
+	public String validateUserDetails(HttpServletRequest request) {
+		String isValidMsg = "failed";
 		UserManagementEntity entity = new UserManagementEntity();
 		entity.setUserName(request.getParameter("username"));
 		entity.setPassword(request.getParameter("password"));
-		UserManagementEntity validUser = loginRepo.findByUserNameAndPassword(entity.getUserName(), entity.getPassword());
-		if (validUser != null) {
-			isValid = true;
+		Optional<UserManagementEntity> validUser = loginRepo.findByUserNameAndPassword(entity.getUserName(),
+				entity.getPassword());
+		if (validUser.isPresent()) {
+			isValidMsg = "success";
 		}
-		return isValid;
+		return isValidMsg;
 	}
 
 }
